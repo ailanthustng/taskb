@@ -60,6 +60,9 @@ describe("Contacts", () => {
         .request(app)
         .get("/api/contacts")
         .end((err, res) => {
+          if (err) {
+            throw err;
+          }
           res.should.have.status(200);
           res.body.should.have.property("status").eql("success");
           res.body.should.have.property("data");
@@ -86,6 +89,9 @@ describe("Contacts", () => {
           .get("/api/contacts")
           .send(contact)
           .end((err, res) => {
+            if (err) {
+              throw err;
+            }
             res.should.have.status(200);
             res.body.should.be.a("object");
             res.body.should.have.property("status").eql("success");
@@ -114,6 +120,9 @@ describe("Contacts", () => {
           .get("/api/contacts/" + contact.id)
           .send(contact)
           .end((err, res) => {
+            if (err) {
+              throw err;
+            }
             res.should.have.status(200);
             res.body.should.be.a("object");
             res.body.should.have.property("data");
@@ -153,6 +162,9 @@ describe("Contacts", () => {
           .put("/api/contacts/" + contact.id)
           .send(updatedContact)
           .end((err, res) => {
+            if (err) {
+              throw err;
+            }
             res.should.have.status(200);
             res.body.should.be.a("object");
             res.body.should.have
@@ -188,6 +200,9 @@ describe("Contacts", () => {
           .request(app)
           .delete("/api/contacts/" + contact.id)
           .end((err, res) => {
+            if (err) {
+              throw err;
+            }
             res.should.have.status(200);
             res.body.should.be.a("object");
             res.body.should.have.property("status").eql("success");
