@@ -39,5 +39,7 @@ app.get("/", (req, res) => res.send("Hello World with Express and Nodemon!!"));
 app.use("/api", apiRoutes);
 // Launch app to listen to specified port
 app.listen(port, function () {
-  console.log("Running TaskB1 on port " + port);
+  console.log("Running TaskB on port " + port);
 });
+
+module.exports = app;
