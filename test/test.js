@@ -12,6 +12,9 @@ describe("Contacts", () => {
   beforeEach((done) => {
     //Before each test we empty the database
     contactModel.deleteMany({}, (err) => {
+      if (err) {
+        throw err;
+      }
       done();
     });
   });
