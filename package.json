@@ -4,7 +4,7 @@
   "description": "RESTful API Implementation for CS3219 OTOT Assignment Task B",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha --exit"
   },
   "author": "Ailanthus Tng",
   "license": "ISC",
