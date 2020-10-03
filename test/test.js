@@ -32,10 +32,7 @@ describe("Contacts", () => {
         .request(app)
         .post("/api/contacts")
         .send(contact)
-        .end((err, res) => {
-          if (err) {
-            throw err;
-          }
+        .then((res) => {
           res.should.have.status(200);
           res.body.should.be.a("object");
           res.body.should.have.property("data");
@@ -47,6 +44,9 @@ describe("Contacts", () => {
           res.body.data.should.have.property("phone").eql("91234567");
           res.body.data.should.have.property("gender").eql("Male");
           done();
+        })
+        .catch((err) => {
+          throw err;
         });
     });
   });
@@ -59,15 +59,15 @@ describe("Contacts", () => {
       chai
         .request(app)
         .get("/api/contacts")
-        .end((err, res) => {
-          if (err) {
-            throw err;
-          }
+        .then((res) => {
           res.should.have.status(200);
           res.body.should.have.property("status").eql("success");
           res.body.should.have.property("data");
           res.body.data.length.should.be.eql(0);
           done();
+        })
+        .catch((err) => {
+          throw err;
         });
     });
   });
@@ -88,16 +88,16 @@ describe("Contacts", () => {
           .request(app)
           .get("/api/contacts")
           .send(contact)
-          .end((err, res) => {
-            if (err) {
-              throw err;
-            }
+          .then((res) => {
             res.should.have.status(200);
             res.body.should.be.a("object");
             res.body.should.have.property("status").eql("success");
             res.body.should.have.property("data");
             res.body.data.length.should.be.above(0);
             done();
+          })
+          .catch((err) => {
+            throw err;
           });
       });
     });
@@ -119,10 +119,7 @@ describe("Contacts", () => {
           .request(app)
           .get("/api/contacts/" + contact.id)
           .send(contact)
-          .end((err, res) => {
-            if (err) {
-              throw err;
-            }
+          .then((res) => {
             res.should.have.status(200);
             res.body.should.be.a("object");
             res.body.should.have.property("data");
@@ -134,6 +131,9 @@ describe("Contacts", () => {
             res.body.data.should.have.property("gender").eql("Male");
             res.body.data.should.have.property("_id").eql(contact.id);
             done();
+          })
+          .catch((err) => {
+            throw err;
           });
       });
     });
@@ -161,10 +161,7 @@ describe("Contacts", () => {
           .request(app)
           .put("/api/contacts/" + contact.id)
           .send(updatedContact)
-          .end((err, res) => {
-            if (err) {
-              throw err;
-            }
+          .then((res) => {
             res.should.have.status(200);
             res.body.should.be.a("object");
             res.body.should.have
@@ -179,6 +176,9 @@ describe("Contacts", () => {
             res.body.data.should.have.property("gender").eql("Male");
             res.body.data.should.have.property("_id").eql(contact.id);
             done();
+          })
+          .catch((err) => {
+            throw err;
           });
       });
     });
@@ -199,15 +199,15 @@ describe("Contacts", () => {
         chai
           .request(app)
           .delete("/api/contacts/" + contact.id)
-          .end((err, res) => {
-            if (err) {
-              throw err;
-            }
+          .then((res) => {
             res.should.have.status(200);
             res.body.should.be.a("object");
             res.body.should.have.property("status").eql("success");
             res.body.should.have.property("message").eql("Contact deleted");
             done();
+          })
+          .catch((err) => {
+            throw err;
           });
       });
     });
