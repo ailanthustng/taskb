@@ -25,7 +25,11 @@ app.use(
 app.use(bodyParser.json());
 
 // Connect to Mongoose and set connection variable
-mongoose.connect(process.env.DB, { useNewUrlParser: true });
+mongoose.connect(
+  process.env.DB,
+  { useNewUrlParser: true },
+  { useMongoClient: true }
+);
 var db = mongoose.connection;
 
 // Added check for DB connection
