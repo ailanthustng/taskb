@@ -28,6 +28,8 @@ const helmet = require("helmet");
 app.use(helmet());
 
 // Connect to Mongoose and set connection variable
+require("dotenv").config({ path: "secrets.json" });
+
 mongoose.connect(process.env.DB, { useNewUrlParser: true });
 var db = mongoose.connection;
 
