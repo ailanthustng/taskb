@@ -8,7 +8,7 @@ services:
 before_script:
   - npm install
   - npm install -g serverless
-  - serverless config credentials --provider aws --key $key --secret $secret
+  - serverless config credentials --provider aws -k $key -s $secret
 
 script:
   - echo "Running tests"
