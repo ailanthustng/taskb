@@ -11,4 +11,3 @@ script:
   - npm install
   - echo "Running tests"
   - mocha --exit
-  - sls deploy

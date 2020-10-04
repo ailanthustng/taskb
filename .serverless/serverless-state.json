@@ -163,7 +163,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/taskb/dev/1601800520958-2020-10-04T08:35:20.958Z/taskb.zip"
+                "S3Key": "serverless/taskb/dev/1601801026200-2020-10-04T08:43:46.200Z/taskb.zip"
               },
               "FunctionName": "taskb-dev-app",
               "Handler": "index.handler",
@@ -187,14 +187,14 @@
               "AppLogGroup"
             ]
           },
-          "AppLambdaVersionzBvTyr3YFlObWTp2UbcOWcVLt2Yzfx1EbivqW58AXk": {
+          "AppLambdaVersionzKZk8DSkBwV87bk0rOSC17g82rtCNJyFyEvwu5Ro": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "AppLambdaFunction"
               },
-              "CodeSha256": "R52UI03018ZYH6eI6VjVAyWC5895/MKsCjxa8f1zK34="
+              "CodeSha256": "ojbvqllSnkHu+tOGOJXDJZPkhjng0cDVdC9kt249xaM="
             }
           },
           "ApiGatewayRestApi": {
@@ -313,7 +313,7 @@
               "MethodResponses": []
             }
           },
-          "ApiGatewayDeployment1601800516932": {
+          "ApiGatewayDeployment1601801016454": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -373,7 +373,7 @@
           "AppLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "AppLambdaVersionzBvTyr3YFlObWTp2UbcOWcVLt2Yzfx1EbivqW58AXk"
+              "Ref": "AppLambdaVersionzKZk8DSkBwV87bk0rOSC17g82rtCNJyFyEvwu5Ro"
             }
           },
           "ServiceEndpoint": {
@@ -497,7 +497,7 @@
         "timeout": 6,
         "runtime": "nodejs12.x",
         "vpc": {},
-        "versionLogicalId": "AppLambdaVersionzBvTyr3YFlObWTp2UbcOWcVLt2Yzfx1EbivqW58AXk"
+        "versionLogicalId": "AppLambdaVersionzKZk8DSkBwV87bk0rOSC17g82rtCNJyFyEvwu5Ro"
       }
     },
     "configValidationMode": "warn",
@@ -529,7 +529,7 @@
     "artifact": "/Users/ailanthustng/Documents/NUS/Year3/Sem1/CS3219/Assignment/OTOT/TaskB/.serverless/taskb.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/taskb/dev/1601800520958-2020-10-04T08:35:20.958Z",
+    "artifactDirectoryName": "serverless/taskb/dev/1601801026200-2020-10-04T08:43:46.200Z",
     "artifact": "taskb.zip"
   }
 }
