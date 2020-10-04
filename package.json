@@ -4,11 +4,14 @@
   "description": "RESTful API Implementation for CS3219 OTOT Assignment Task B",
   "main": "index.js",
   "scripts": {
+    "start": "nodemon index",
+    "deploy": "serverless deploy",
     "test": "mocha --exit"
   },
   "author": "Ailanthus Tng",
   "license": "ISC",
   "dependencies": {
+    "aws-serverless-express": "^3.3.8",
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
     "mongoose": "^5.10.7"
@@ -16,6 +19,7 @@
   "devDependencies": {
     "chai": "^4.2.0",
     "chai-http": "^4.3.0",
-    "mocha": "^8.1.3"
+    "mocha": "^8.1.3",
+    "serverless": "^2.4.0"
   }
 }
