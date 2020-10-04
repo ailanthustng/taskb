@@ -28,9 +28,6 @@ app.use(
 app.use(bodyParser.json());
 
 // Connect to Mongoose and set connection variable
-require("dotenv").config({ path: "secrets.json" });
-
-if (process.env == 'dev') {
 mongoose.connect(process.env.DB, { useNewUrlParser: true });
 var db = mongoose.connection;
 
