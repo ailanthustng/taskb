@@ -1,7 +1,7 @@
 {
   "name": "taskb",
   "version": "1.0.0",
-  "description": "RESTful API Implementation for CS3219 OTOT Assignment Task B",
+  "description": "RESTful API Implementation for CS3219 OTOT Assignment Task B!",
   "main": "index.js",
   "scripts": {
     "test": "mocha --exit"
