@@ -16,7 +16,8 @@ app.use(bodyParser.json());
 
 // Connect to Mongoose and set connection variable
 mongoose.connect(
-  "mongodb+srv://user:userpassword@cluster0.yn58n.mongodb.net/taskb?retryWrites=true&w=majority",
+  process.env.MONGODB_URI ||
+    "mongodb+srv://user:userpassword@cluster0.yn58n.mongodb.net/taskb?retryWrites=true&w=majority",
   { useNewUrlParser: true },
   { useUnifiedTopology: true }
 );
