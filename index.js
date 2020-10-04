@@ -10,6 +10,9 @@ let mongoose = require("mongoose");
 // Initialise the app
 let app = express();
 
+// Initialise serverless
+let serverless = require("serverless-http");
+
 // Import routes
 let apiRoutes = require("./api-routes");
 
@@ -43,3 +46,4 @@ app.listen(port, function () {
 });
 
 module.exports = app;
+module.exports.handler = serverless(app);
