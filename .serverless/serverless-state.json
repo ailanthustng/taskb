@@ -10,6 +10,10 @@
       "name": "aws",
       "runtime": "nodejs12.x",
       "region": "ap-southeast-1",
+      "environment": {
+        "NODE_ENV": "dev",
+        "DB": "mongodb+srv://user:userpassword@cluster0.yn58n.mongodb.net/taskb?retryWrites=true&w=majority"
+      },
       "versionFunctions": true,
       "compiledCloudFormationTemplate": {
         "AWSTemplateFormatVersion": "2010-09-09",
@@ -159,7 +163,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/taskb/dev/1601799595272-2020-10-04T08:19:55.272Z/taskb.zip"
+                "S3Key": "serverless/taskb/dev/1601800520958-2020-10-04T08:35:20.958Z/taskb.zip"
               },
               "FunctionName": "taskb-dev-app",
               "Handler": "index.handler",
@@ -171,20 +175,26 @@
                 ]
               },
               "Runtime": "nodejs12.x",
-              "Timeout": 6
+              "Timeout": 6,
+              "Environment": {
+                "Variables": {
+                  "NODE_ENV": "dev",
+                  "DB": "mongodb+srv://user:userpassword@cluster0.yn58n.mongodb.net/taskb?retryWrites=true&w=majority"
+                }
+              }
             },
             "DependsOn": [
               "AppLogGroup"
             ]
           },
-          "AppLambdaVersionPeHlQQ02zZUqBnDR97xFMnd2mjtXhIb2IdXcpHM": {
+          "AppLambdaVersionzBvTyr3YFlObWTp2UbcOWcVLt2Yzfx1EbivqW58AXk": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "AppLambdaFunction"
               },
-              "CodeSha256": "mnIP134HwV/v1fdzBReYQ3PP+kP2IWKd6KB+hmW1p/A="
+              "CodeSha256": "R52UI03018ZYH6eI6VjVAyWC5895/MKsCjxa8f1zK34="
             }
           },
           "ApiGatewayRestApi": {
@@ -303,7 +313,7 @@
               "MethodResponses": []
             }
           },
-          "ApiGatewayDeployment1601799592493": {
+          "ApiGatewayDeployment1601800516932": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -363,7 +373,7 @@
           "AppLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "AppLambdaVersionPeHlQQ02zZUqBnDR97xFMnd2mjtXhIb2IdXcpHM"
+              "Ref": "AppLambdaVersionzBvTyr3YFlObWTp2UbcOWcVLt2Yzfx1EbivqW58AXk"
             }
           },
           "ServiceEndpoint": {
@@ -460,6 +470,15 @@
       },
       "vpc": {}
     },
+    "custom": {
+      "secrets": {
+        "NODE_ENV": "dev",
+        "DB": "mongodb+srv://user:userpassword@cluster0.yn58n.mongodb.net/taskb?retryWrites=true&w=majority"
+      }
+    },
+    "plugins": [
+      "serverless-offline"
+    ],
     "pluginsData": {},
     "functions": {
       "app": {
@@ -478,7 +497,7 @@
         "timeout": 6,
         "runtime": "nodejs12.x",
         "vpc": {},
-        "versionLogicalId": "AppLambdaVersionPeHlQQ02zZUqBnDR97xFMnd2mjtXhIb2IdXcpHM"
+        "versionLogicalId": "AppLambdaVersionzBvTyr3YFlObWTp2UbcOWcVLt2Yzfx1EbivqW58AXk"
       }
     },
     "configValidationMode": "warn",
@@ -486,21 +505,31 @@
     "layers": {},
     "initialServerlessConfig": {
       "service": "taskb",
+      "custom": {
+        "$ref": "$[\"service\"][\"custom\"]"
+      },
       "provider": {
         "name": "aws",
         "runtime": "nodejs12.x",
         "stage": "dev",
-        "region": "ap-southeast-1"
+        "region": "ap-southeast-1",
+        "environment": {
+          "NODE_ENV": "dev",
+          "DB": "mongodb+srv://user:userpassword@cluster0.yn58n.mongodb.net/taskb?retryWrites=true&w=majority"
+        }
       },
       "functions": {
         "$ref": "$[\"service\"][\"functions\"]"
+      },
+      "plugins": {
+        "$ref": "$[\"service\"][\"plugins\"]"
       }
     },
     "isDashboardMonitoringPreconfigured": false,
     "artifact": "/Users/ailanthustng/Documents/NUS/Year3/Sem1/CS3219/Assignment/OTOT/TaskB/.serverless/taskb.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/taskb/dev/1601799595272-2020-10-04T08:19:55.272Z",
+    "artifactDirectoryName": "serverless/taskb/dev/1601800520958-2020-10-04T08:35:20.958Z",
     "artifact": "taskb.zip"
   }
 }

@@ -1,10 +1,16 @@
 service: taskb
 
+custom:
+  secrets: ${file(secrets.json)}
+
 provider:
   name: aws
   runtime: nodejs12.x
-  stage: dev
+  stage: ${self:custom.secrets.NODE_ENV}
   region: ap-southeast-1
+  environment:
+    NODE_ENV: ${self:custom.secrets.NODE_ENV}
+    DB: ${self:custom.secrets.DB}
 
 functions:
   app:
@@ -12,3 +18,6 @@ functions:
     events:
       - http: ANY /
       - http: "ANY {proxy+}"
+
+plugins:
+  - serverless-offline
