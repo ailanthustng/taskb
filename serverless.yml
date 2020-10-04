@@ -1,4 +1,4 @@
-service: taskb3
+service: taskb
 
 custom:
   secrets: ${file(secrets.json)}

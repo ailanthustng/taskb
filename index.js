@@ -28,14 +28,14 @@ app.use(
 app.use(bodyParser.json());
 
 // Connect to Mongoose and set connection variable
-if (process.env.NODE_ENV == "test") {
-  mongoose.connect("mongodb://localhost/taskb1", { useNewUrlParser: true });
-} else if (
-  process.env.NODE_ENV == "dev" ||
-  process.env.NODE_ENV == "production"
-) {
-  mongoose.connect(process.env.DB, { useNewUrlParser: true });
-}
+// if (process.env.NODE_ENV == "test") {
+mongoose.connect("mongodb://localhost/taskb1", { useNewUrlParser: true });
+// } else if (
+//   process.env.NODE_ENV == "dev" ||
+//   process.env.NODE_ENV == "production"
+// ) {
+//   mongoose.connect(process.env.DB, { useNewUrlParser: true });
+// }
 var db = mongoose.connection;
 
 // Added check for DB connection
