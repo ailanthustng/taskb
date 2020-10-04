@@ -1,4 +1,5 @@
-require("dotenv").config();
+let dotenv = require("dotenv");
+dotenv.config();
 
 // Import express
 let express = require("express");
