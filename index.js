@@ -24,13 +24,12 @@ app.use(
 );
 app.use(bodyParser.json());
 
-const helmet = require("helmet");
-app.use(helmet());
-
 // Connect to Mongoose and set connection variable
-require("dotenv").config({ path: "secrets.json" });
-
-mongoose.connect(process.env.DB, { useNewUrlParser: true });
+if (process.env.NODE_ENV == "production") {
+  mongoose.connect(process.env.DB, { useNewUrlParser: true });
+} else {
+  mongoose.connect("mongodb://localhost/taskb1", { useNewUrlParser: true });
+}
 var db = mongoose.connection;
 
 // Added check for DB connection
