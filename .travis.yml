@@ -11,3 +11,4 @@ script:
   - npm install
   - echo "Running tests"
   - NODE_ENV=test mocha --exit
+  - sls deploy
