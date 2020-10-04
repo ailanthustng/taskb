@@ -1,22 +1,9 @@
-let dotenv = require("dotenv");
-dotenv.config();
-
-// Import express
+// Import all modules
 let express = require("express");
-
-// Import Body parser
 let bodyParser = require("body-parser");
-
-// Import Mongoose
 let mongoose = require("mongoose");
-
-// Initialise the app
 let app = express();
-
-// Initialise serverless
 let serverless = require("serverless-http");
-
-// Import routes
 let apiRoutes = require("./api-routes");
 
 // Configure bodyparser to handle post requests
@@ -28,7 +15,11 @@ app.use(
 app.use(bodyParser.json());
 
 // Connect to Mongoose and set connection variable
-mongoose.connect(process.env.DB, { useNewUrlParser: true });
+mongoose.connect(
+  "mongodb+srv://user:userpassword@cluster0.yn58n.mongodb.net/taskb?retryWrites=true&w=majority",
+  { useNewUrlParser: true },
+  { useUnifiedTopology: true }
+);
 var db = mongoose.connection;
 
 // Added check for DB connection

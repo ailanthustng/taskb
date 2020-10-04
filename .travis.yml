@@ -10,8 +10,8 @@ script:
   - echo "Installing dependencies"
   - npm install
   - echo "Running tests"
-  #   - NODE_ENV=test mocha --exit
-  #   - export AWS_ACCESS_KEY_ID=AKIAJKQAU22YMX4KUSXQ
-  #   - export AWS_SECRET_ACCESS_KEY=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
-  #   - NODE_ENV=dev sls deploy
+  - NODE_ENV=test mocha --exit
+  - export AWS_ACCESS_KEY_ID=AKIAJKQAU22YMX4KUSXQ
+  - export AWS_SECRET_ACCESS_KEY=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
+  - NODE_ENV=dev sls deploy
   - mocha --exit
