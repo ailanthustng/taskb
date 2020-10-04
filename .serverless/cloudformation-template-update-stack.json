@@ -146,7 +146,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/taskb/dev/1601804589049-2020-10-04T09:43:09.049Z/taskb.zip"
+          "S3Key": "serverless/taskb/dev/1601804712324-2020-10-04T09:45:12.324Z/taskb.zip"
         },
         "FunctionName": "taskb-dev-app",
         "Handler": "index.handler",
@@ -170,14 +170,14 @@
         "AppLogGroup"
       ]
     },
-    "AppLambdaVersionedRLDi6nLepo1wS0ouLNVAktgOXjiKJLOWItU7COc": {
+    "AppLambdaVersionjM4WFFh9GbvS4qAGoo9eA8f65zTJQEvWaKRa4RK9Bs": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "AppLambdaFunction"
         },
-        "CodeSha256": "xvxV9+dwSxFg7+vrnW3bd6GTqT+tn7oWJu/tFUSmqIQ="
+        "CodeSha256": "Fr2iDaXqEqFIbmS+pvCCmGlT5O0afiwjp8p/SF3Diec="
       }
     },
     "ApiGatewayRestApi": {
@@ -296,7 +296,7 @@
         "MethodResponses": []
       }
     },
-    "ApiGatewayDeployment1601804577673": {
+    "ApiGatewayDeployment1601804703104": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -356,7 +356,7 @@
     "AppLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "AppLambdaVersionedRLDi6nLepo1wS0ouLNVAktgOXjiKJLOWItU7COc"
+        "Ref": "AppLambdaVersionjM4WFFh9GbvS4qAGoo9eA8f65zTJQEvWaKRa4RK9Bs"
       }
     },
     "ServiceEndpoint": {
