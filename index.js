@@ -24,12 +24,11 @@ app.use(
 );
 app.use(bodyParser.json());
 
+const helmet = require("helmet");
+app.use(helmet());
+
 // Connect to Mongoose and set connection variable
-mongoose.connect(
-  process.env.DB,
-  { useNewUrlParser: true },
-  { useMongoClient: true }
-);
+mongoose.connect(process.env.DB, { useNewUrlParser: true });
 var db = mongoose.connection;
 
 // Added check for DB connection
