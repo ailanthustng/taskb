@@ -5,11 +5,16 @@ node_js:
 services:
   - mongodb
 
-script:
-  - echo "****** Build starts ******"
-  - echo "Installing dependencies"
+before_script:
   - npm install
+  - npm install -g serverless
+  - serverless config credentials --provider aws --key $key --secret $secret
+
+script:
   - echo "Running tests"
   - mocha --exit
-  - sls config credentials --provider aws --key $key --secret $secret_key
   - sls deploy
+  env:
+    global:
+    - secure: wVYxFd8RhvlFNtq/W68YGFub5j46aPAE7XcB4N7ntdi5nl5zJn1Kkkm1wDPxTaCgwFkj9gUY5sebtPW7CnBXv/R5A+pu1I2hXIebiIxr1aSkcYZk/3bX8ri/+n+omdt6cAFKjaLhLxTQy8fr7xJXK7OVXvCncdBelGPng2PWN35lkjAi9OmlpT0la6ba99hiizHZOKDFM6pOnabPg62PmbgT4+9O/sZyKIRl7/pNv32m8cKPn8uUzk9e8/4wyUbPMOFq4NRBycw4Vt7XFyqRVR7zzcXjz1sZ+2c++dYKgX81vuJ8sQFf1dEGer8OCAtZm6pVEGSJl1xMZEZNEvj+o8D40TrYmEL+g7O7mT9AkIXaHebBa+3X5Vj2Vjnk3G1DrhDZMNdjTKWdEXr9Aw2ZcbB2U6EEPo8r2/7NEEG1EmsnLGTgHADqmofNY9/h4du8/skQYzTISvaXKMvoJjtJg4Kj+msdntPDC3EaSn5ypBlff96UTQ/Y9HVSnE+RkWx2oj1wznl1hfXpMjBp4PDIDsO4BRs7/C+9EQOXf0+CbozUCZngcf+cPZqY0i8++f4jTCsKYXdDjhj0ZZTViVn1/9j+Lom0MIDEi5RLmuIwaElUIaI5u551VTEUzajytK9GF6jZKp9M+PP2HgWP89qePRra+anKfw+RdmWpF2m8iaE=
+    - secure: rQdb4awyug+mt3u2NVNruGRwtiXA7QWnwv9XXD/1gnnwKbkgX0mYPS2h2h5uLKwP826IX555T5BQlEi60geYMeSygePC3gaHr2b/e+bz/T0TtS2CfRsuK4euUYMOii/A1QkjqnLuSKSUcscNiVtaX2TbBOih6Xn0XCXwI7BrE+zK67ISSzQVzeJvtHgLk2JZFRbbtYafc3ZZijWWeRPWN5rtdO+JbcCJRolmFoFO3PuJyPFhVt0CFrJmZ7aR4PI2WhQvw8yJeTPgwDf8rUz2S3dt8ts0yrc7beu8V9bQ/LlIEZNaLgV5TDHbZx9ty4y7kEDpNrkqdeLWSk6WRZCEstVk6NDotxjyj7KhKzTRgnQXjglipYtDbuquTC+UHcz6G6eG8zg/Z0AdJTpJSZTLIPAx1yA2nI7YKXDsF2f/e5GKOttLi1nzPNQB1qMK9EyHlUojzev1flhmyqGMw8c4eGSWXuW9muiXZCDc4LPeOhByxO/fGIWAA2n1liOyDs+Z2cPsPDzj+KMiUzGjoO6Zqk/Y0N4nbqbyn/QNYDmkQ9E59Oum/bsZWrtNkhKGlw623R5UKquZd+Z7faS+HjXAityfwPucHFeH0Tj8urcOjIsIIYxgwI5llCd0x7BQ03XEv7os6+h6I5KzhhUera+e2YuE+SRJpXfcohy5CE51v7Q=
