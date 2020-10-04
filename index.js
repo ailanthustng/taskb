@@ -16,8 +16,7 @@ app.use(bodyParser.json());
 
 // Connect to Mongoose and set connection variable
 mongoose.connect(
-  process.env.MONGODB_URI ||
-    "mongodb+srv://user:userpassword@cluster0.yn58n.mongodb.net/taskb?retryWrites=true&w=majority",
+  "mongodb+srv://user:userpassword@cluster0.yn58n.mongodb.net/taskb?retryWrites=true&w=majority",
   { useNewUrlParser: true },
   { useUnifiedTopology: true }
 );
@@ -31,7 +30,11 @@ else console.log("Db connected successfully");
 var port = process.env.PORT || 8080;
 
 // Send message for default URL
-app.get("/", (req, res) => res.send("Hello World with Express and Nodemon!!"));
+app.get("/", (req, res) =>
+  res.send(
+    "Hello World with Express and Nodemon! To begin, add /api to the back of the current url!"
+  )
+);
 
 // Use Api routes in the App
 app.use("/api", apiRoutes);
