@@ -5,6 +5,7 @@ let mongoose = require("mongoose");
 let app = express();
 let serverless = require("serverless-http");
 let apiRoutes = require("./api-routes");
+let cors = require("cors");
 
 // Configure bodyparser to handle post requests
 app.use(
@@ -13,6 +14,12 @@ app.use(
   })
 );
 app.use(bodyParser.json());
+app.use(cors({origin: true}));
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 
 // Connect to Mongoose and set connection variable
 mongoose.connect(
@@ -38,6 +45,7 @@ app.get("/", (req, res) =>
 
 // Use Api routes in the App
 app.use("/api", apiRoutes);
+
 // Launch app to listen to specified port
 app.listen(port, function () {
   console.log("Running TaskB on port " + port);
