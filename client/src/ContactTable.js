@@ -50,7 +50,7 @@ const ContactTable = ({contacts, setContacts}) => {
     const onDeleteClick = (id) => {
         axios.delete(`http://localhost:8080/api/contacts/${id}`)
             .then(res => console.log(res));
-        setContacts(contacts.filter(contact => contact._id != id));
+        setContacts(contacts.filter(contact => contact._id !== id));
         onClose();
     }
 
